@@ -1,0 +1,622 @@
+swagger: '2.0'
+info:
+  version: final
+  title: AWS project
+  description: 'Team members: Sruthi Sugumaran, Smriti, Yerin An'
+paths:
+  /api/BloodBanks:
+    get:
+      tags:
+        - BloodBanks
+      operationId: GetBank
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          schema:
+            uniqueItems: false
+            type: array
+            items:
+              $ref: '#/definitions/BloodBank'
+    post:
+      tags:
+        - BloodBanks
+      operationId: PostBloodBank
+      consumes:
+        - application/json-patch+json
+        - application/json
+        - text/json
+        - application/*+json
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: bloodBank
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/BloodBankCreateDto'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/BloodBankDto'
+  '/api/BloodBanks/{id}':
+    get:
+      tags:
+        - BloodBanks
+      operationId: GetBloodBank
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/BloodBankDto'
+    put:
+      tags:
+        - BloodBanks
+      operationId: PutBloodBank
+      consumes:
+        - application/json-patch+json
+        - application/json
+        - text/json
+        - application/*+json
+      produces: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+        - name: bloodBank
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/BloodBankDto'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - BloodBanks
+      operationId: DeleteBloodBank
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/BloodBank'
+  /api/BloodStocks:
+    get:
+      tags:
+        - BloodStocks
+      operationId: GetStock
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          schema:
+            uniqueItems: false
+            type: array
+            items:
+              $ref: '#/definitions/BloodStock'
+    post:
+      tags:
+        - BloodStocks
+      operationId: PostBloodStock
+      consumes:
+        - application/json-patch+json
+        - application/json
+        - text/json
+        - application/*+json
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: bloodStock
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/BloodStockCreateDto'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/BloodStockDto'
+  '/api/BloodStocks/{id}':
+    get:
+      tags:
+        - BloodStocks
+      operationId: GetBloodStock
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/BloodStock'
+    put:
+      tags:
+        - BloodStocks
+      operationId: PutBloodStock
+      consumes:
+        - application/json-patch+json
+        - application/json
+        - text/json
+        - application/*+json
+      produces: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+        - name: bloodStock
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/BloodStockUpdateDto'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - BloodStocks
+      operationId: DeleteBloodStock
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/BloodStock'
+  /api/Patients:
+    get:
+      tags:
+        - Patients
+      operationId: GetPatient
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          schema:
+            uniqueItems: false
+            type: array
+            items:
+              $ref: '#/definitions/Patient'
+    post:
+      tags:
+        - Patients
+      operationId: PostPatient
+      consumes:
+        - application/json-patch+json
+        - application/json
+        - text/json
+        - application/*+json
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: patient
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/PatientCreateDto'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Patient'
+  '/api/Patients/{id}':
+    get:
+      tags:
+        - Patients
+      operationId: GetPatient
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Patient'
+    put:
+      tags:
+        - Patients
+      operationId: PutPatient
+      consumes:
+        - application/json-patch+json
+        - application/json
+        - text/json
+        - application/*+json
+      produces: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+        - name: patient
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/PatientUpdateDto'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Patients
+      operationId: DeletePatient
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Patient'
+  /api/Values:
+    get:
+      tags:
+        - Values
+      operationId: Get
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          schema:
+            uniqueItems: false
+            type: array
+            items:
+              type: string
+    post:
+      tags:
+        - Values
+      operationId: Post
+      consumes:
+        - application/json-patch+json
+        - application/json
+        - text/json
+        - application/*+json
+      produces: []
+      parameters:
+        - name: value
+          in: body
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  '/api/Values/{id}':
+    get:
+      tags:
+        - Values
+      operationId: Get
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: string
+    put:
+      tags:
+        - Values
+      operationId: Put
+      consumes:
+        - application/json-patch+json
+        - application/json
+        - text/json
+        - application/*+json
+      produces: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+        - name: value
+          in: body
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Values
+      operationId: Delete
+      consumes: []
+      produces: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+definitions:
+  BloodBank:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      bloodBankName:
+        type: string
+      address:
+        type: string
+      city:
+        type: string
+      phone:
+        type: string
+      website:
+        type: string
+      email:
+        type: string
+  BloodBankCreateDto:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      bloodBankName:
+        type: string
+      address:
+        type: string
+      city:
+        type: string
+      phone:
+        type: string
+      website:
+        type: string
+      email:
+        type: string
+  BloodBankDto:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      bloodBankName:
+        type: string
+      address:
+        type: string
+      city:
+        type: string
+      phone:
+        type: string
+      website:
+        type: string
+      email:
+        type: string
+  BloodStock:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      bloodType:
+        type: string
+      bloodBankId:
+        format: int32
+        type: integer
+      quantity:
+        format: int32
+        type: integer
+      bastBefore:
+        format: date-time
+        type: string
+      status:
+        type: string
+  BloodStockCreateDto:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      bloodType:
+        type: string
+      bloodBankId:
+        format: int32
+        type: integer
+      quantity:
+        format: int32
+        type: integer
+      bastBefore:
+        format: date-time
+        type: string
+      status:
+        type: string
+  BloodStockDto:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      bloodType:
+        type: string
+      bloodBankId:
+        format: int32
+        type: integer
+      quantity:
+        format: int32
+        type: integer
+      bastBefore:
+        format: date-time
+        type: string
+      status:
+        type: string
+  BloodStockUpdateDto:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      bloodType:
+        type: string
+      bloodBankId:
+        format: int32
+        type: integer
+      quantity:
+        format: int32
+        type: integer
+      bastBefore:
+        format: date-time
+        type: string
+      status:
+        type: string
+  Patient:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      firstName:
+        type: string
+      lastName:
+        type: string
+      age:
+        format: int32
+        type: integer
+      gender:
+        type: string
+      bloodGroup:
+        type: string
+      city:
+        type: string
+      phone:
+        type: string
+  PatientCreateDto:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      firstName:
+        type: string
+      lastName:
+        type: string
+      age:
+        format: int32
+        type: integer
+      gender:
+        type: string
+      bloodGroup:
+        type: string
+      city:
+        type: string
+      phone:
+        type: string
+  PatientUpdateDto:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      firstName:
+        type: string
+      lastName:
+        type: string
+      age:
+        format: int32
+        type: integer
+      gender:
+        type: string
+      bloodGroup:
+        type: string
+      city:
+        type: string
+      phone:
+        type: string
